@@ -4,10 +4,9 @@ import { userData } from '../../utils/userData.js'
 
 export function getToken() {
 
-    const vars = {};
     const endpoint = '/my_messages.php'
 
-    let tokenResponse = http.get("http://test.k6.io/my_messages.php");
+    let tokenResponse = http.get(BASE_URL + endpoint);
 
     globalThis.vars['csrftoken'] = tokenResponse
         .html()
