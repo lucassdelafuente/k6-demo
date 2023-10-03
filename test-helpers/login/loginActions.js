@@ -1,6 +1,7 @@
 import http from 'k6/http';
 import { BASE_URL } from '../../variables.js';
 import { userData } from '../../utils/userData.js'
+import { validateToken } from '../../tests/login/loginValidations.js'
 
 export function getToken() {
 
@@ -19,7 +20,7 @@ export function getToken() {
 }
 
 export function postLogin() {
-    getToken()
+    validateToken();
 
     const endpoint = '/my_messages.php';
     const loginResponse = http.post(BASE_URL + endpoint, { login: userData });

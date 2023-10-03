@@ -19,7 +19,7 @@ export function validateToken() {
         'GET token should respond 200': (r) => r.status === 200
     });
     check(getTokenResponse, {
-        "Users should not be auth'd. Is unauthorized header present?": (r) => r.body.indexOf("Unauthorized") !== -1
+        "Users must not be authenticated. Is an unauthorized header present?": (r) => r.body.indexOf("Unauthorized") !== -1
     });
 }
 
